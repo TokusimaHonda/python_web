@@ -2,7 +2,18 @@
 from flask import Flask, session, redirect
 from functools import wraps
 
+from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+import pyrebase
+import json, os
+
+with open("firebaseConfig.json") as f:
+    firebaseConfig = json.loads(f.read())
+firebase = pyrebase.initialize_app(firebaseConfig)
+auth = firebase.auth()
+
 # ユーザー名とパスワードの一覧 --- (*1)
+
+#DBから読み込むようにする
 USER_LOGIN_LIST = {
     'taro': 'aaa',
     'jiro': 'bbb',
@@ -15,15 +26,21 @@ def is_login():
     return 'login' in session
 
 # ログインを試行する --- (*3)
+#ftakahashidev@gmail.com
+#testlogin
+
 def try_login(form):
-    user = form.get('user', '')
+    email = form.get('user', '')
     password = form.get('pw', '')
-    # パスワードチェック
-    if user not in USER_LOGIN_LIST: return False
-    if USER_LOGIN_LIST[user] != password:
+    # 認証チェック
+    try:
+        user_auth = auth.sign_in_with_email_and_password(email, password)
+        session['login'] = email
+        return True
+    except:
         return False
-    session['login'] = user
-    return True
+
+
 
 # ユーザー名を得る --- (*4)
 def get_id():
