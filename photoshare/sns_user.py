@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for, s
 import pyrebase
 import json, os
 
-with open("firebaseConfig.json") as f:
+with open("./config/firebaseConfig.json") as f:
     firebaseConfig = json.loads(f.read())
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
