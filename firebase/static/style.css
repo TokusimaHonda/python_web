@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*
+static/style.css
+スタイルシート
+*/
+
+body{
+    font: 14px/1.6 "Hiragino Kaku Gothic Pro",Osaka,"メイリオ","ＭＳ Ｐゴシック","MS PGothic",Verdana,Arial,sans-serif;
+    margin:0;
+    color:#313131;
+    background-color: #eeeeee;
+}
+hr{
+    border-top: 3px double #bbb;
+}
+h1{
+    padding: 5px 0;
+    color: #6594e0;
+    border-bottom: dashed 2px #6594e0;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.article h2{
+    padding: 0.5em;
+    color: #494949;
+    background: #c8d6ee;
+    border-left: solid 5px #2b52cd;
+}
+
+.card{
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+}
+.login{
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+}
+.login form{
+    margin: 50px 10px;
+}
+.login p{
+    margin: 10px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 125%;
+}
+.login input{
+    margin: 5px 50px;
+}
+button{
+    display: block;
+    border-style: none;
+    font-size: 1.4em;
+    background-color: #2b52cd;
+    color: white;
+    margin: 50px 50px;
+    padding: 10px 30px;
+}
+.error{
+    font-size: 0.5em;
+    color: #ce0404;
+}
